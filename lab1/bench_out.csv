@@ -1,4 +1,4 @@
-2022-12-05T14:54:40+00:00
+2022-12-05T15:26:00+00:00
 Running build/bench
 Run on (16 X 1999.99 MHz CPU s)
 CPU Caches:
@@ -6,7 +6,7 @@ CPU Caches:
   L1 Instruction 32 KiB (x16)
   L2 Unified 4096 KiB (x8)
   L3 Unified 16384 KiB (x1)
-Load Average: 1.55, 0.64, 0.47
+Load Average: 0.56, 0.48, 0.31
 name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
-"quicksort_benchmark/seq/iterations:5/real_time",5,11669.1,11668.8,ms,,,,,
-"quicksort_benchmark/par/iterations:5/real_time",5,3087.88,3086.84,ms,,,,,
+"quicksort_benchmark/seq/iterations:5/real_time",5,11575,11574.8,ms,,,,,
+"quicksort_benchmark/par/iterations:5/real_time",5,3350.31,3350.27,ms,,,,,

@@ -6,7 +6,7 @@ namespace par {
 
     template<typename It, typename Compare>
     void quicksort(It begin, It end, Compare comp) {
-        tbb::task_arena task_arena(16);
+        tbb::task_arena task_arena(4);
         __quicksort_utils::par_quicksort(begin, end, comp, task_arena, 1000);
     }
 

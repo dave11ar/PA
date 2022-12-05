@@ -53,16 +53,21 @@ namespace __quicksort_utils {
 
     template<typename It, typename Compare>
     void par_quicksort(It begin, It end, const Compare& comp, tbb::task_arena& task_arena, size_t border) {
-        if (end - begin < 2) {
+        const auto size = end - begin;
+        if (size < 2) {
             return;
         }
 
         const auto partition = hoare_partition(begin, end, comp);
         task_arena.execute(
             [&](){
-                tbb::parallel_invoke(
-                    [&](){par_quicksort(begin, partition, comp, task_arena, border);},
-                    [&](){par_quicksort(partition, end, comp, task_arena, border);});
+                if (size < border) {
+                    seq_quicksort(begin, end, comp);
+                } else {
+                    tbb::parallel_invoke(
+                        [&](){par_quicksort(begin, partition, comp, task_arena, border);},
+                        [&](){par_quicksort(partition, end, comp, task_arena, border);});
+                }
             });
     }
 
